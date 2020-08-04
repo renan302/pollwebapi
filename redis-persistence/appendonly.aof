@@ -281,3 +281,89 @@ $13
 *1
 $4
 EXEC
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*3
+$6
+SCRIPT
+$4
+LOAD
+$247
+
+                redis.call('HMSET', KEYS[1], 'absexp', ARGV[1], 'sldexp', ARGV[2], 'data', ARGV[4])
+                if ARGV[3] ~= '-1' then
+                  redis.call('EXPIRE', KEYS[1], ARGV[3])
+                end
+                return 1
+*1
+$5
+MULTI
+*8
+$5
+HMSET
+$20
+PollWebApiget.poll.4
+$6
+absexp
+$18
+637321479466698328
+$6
+sldexp
+$2
+-1
+$4
+data
+$320
+{
+  "poll_id": 4,
+  "poll_description": "This is the question",
+  "options": [
+    {
+      "option_id": 10,
+      "option_description": "FirstOption"
+    },
+    {
+      "option_id": 11,
+      "option_description": "Second Option"
+    },
+    {
+      "option_id": 12,
+      "option_description": "Third Option"
+    }
+  ]
+}
+*3
+$9
+PEXPIREAT
+$20
+PollWebApiget.poll.4
+$13
+1596551146673
+*1
+$4
+EXEC
+*2
+$3
+DEL
+$20
+PollWebApiget.poll.2
+*2
+$3
+DEL
+$20
+PollWebApiget.poll.3
+*2
+$3
+DEL
+$20
+PollWebApiget.poll.1
+*2
+$3
+DEL
+$20
+PollWebApiget.poll.4

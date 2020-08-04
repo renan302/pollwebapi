@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.DependencyInjection;
 using PollWebApi.Context;
+using Microsoft.OpenApi.Models;
 
 namespace PollWebApi
 {
@@ -23,7 +24,12 @@ namespace PollWebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);            
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PollWebApi Documentation", Version = "v1" });
+            });
 
             if (_env.IsProduction())
             {
@@ -67,6 +73,17 @@ namespace PollWebApi
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "PollWebApi Documentation");
+                c.RoutePrefix = "doc";
+            });
+
             app.UseMvc();
 
 
