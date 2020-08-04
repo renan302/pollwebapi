@@ -35,6 +35,7 @@ namespace PollWebApi.Models
         public static PollClass find(PollContext context, Int64 id)
         {
 
+            
             PollClass pollClass = context.Poll.Include(x => x.options).FirstOrDefault(x => x.poll_id == id);
 
             if (pollClass == null)
