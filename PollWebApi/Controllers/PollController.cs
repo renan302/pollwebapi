@@ -1,9 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json.Linq;
 using PollWebApi.Context;
 using PollWebApi.Models;
 using PollWebApi.Request;
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace PollWebApi.Controllers
 {
@@ -21,13 +26,34 @@ namespace PollWebApi.Controllers
 
         // GET: api/poll/v1/5
         [HttpGet("{id}")]
-        public ActionResult<Object> Get(int id)
+        public ActionResult<Object> Get(int id, [FromServices]IConfiguration config,
+            [FromServices]IDistributedCache cache)
         {
-            Object pollClass;
-
+            Object pollClass;            
             try
             {
-                pollClass = PollClass.findObject(_context, id);
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                    WriteIndented = true
+                };
+
+                pollClass = cache.GetString("get.poll."+id.ToString());                               
+
+                if (pollClass == null)
+                {
+                    pollClass = PollClass.findObject(_context, id);
+
+                    DistributedCacheEntryOptions opcoesCache =
+                    new DistributedCacheEntryOptions();
+
+                    opcoesCache.SetAbsoluteExpiration(
+                    TimeSpan.FromMinutes(15));                    
+
+                    cache.SetString("get.poll." + id.ToString(), 
+                           JsonSerializer.Serialize(pollClass, options), opcoesCache);
+                }
+
             }
             catch (KeyNotFoundException e)
             {
@@ -80,7 +106,7 @@ namespace PollWebApi.Controllers
         [HttpGet("{id}/stats")]
         public IActionResult Stats(int id)
         {
-
+            
             Object statsClass;
 
             try

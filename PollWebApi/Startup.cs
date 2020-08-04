@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.DependencyInjection;
 using PollWebApi.Context;
 
@@ -22,20 +23,34 @@ namespace PollWebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
-
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);            
 
             if (_env.IsProduction())
             {
+
+                services.AddDistributedRedisCache(options =>
+                {
+                    options.Configuration =
+                        Configuration.GetConnectionString("conexaoredisprod");
+                    options.InstanceName = "PollWebApi";                    
+                });
+
                 services.AddDbContext<PollContext>(options =>
                     options.UseMySql(Configuration.GetConnectionString("pollmysqlprod")));
+
             }
             else
-            {                
+            {
+
+                services.AddDistributedRedisCache(options =>
+                {
+                    options.Configuration =
+                        Configuration.GetConnectionString("conexaoredisdev");
+                    options.InstanceName = "PollWebApi";
+                });
+
                 services.AddDbContext<PollContext>(options =>
-                    options.UseMySql(Configuration.GetConnectionString("pollmysqldev")));
-                    //options.UseMySql("server = 192.168.15.14; database = polldb; uid = root; pwd = root;"));
+                    options.UseMySql(Configuration.GetConnectionString("pollmysqldev")));                    
             }
         }
 
