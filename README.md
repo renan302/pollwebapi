@@ -6,7 +6,7 @@
 
 - Instalar a SDK .NET Core https://dotnet.microsoft.com/download;
 
-- Acessar o arquivo "./app/PollWebApi/appsettings.json";
+- Acessar o arquivo "./PollWebApi/appsettings.json";
 
 - Alterar o valor "MEU_IP" da propriedade "pollmysqldev", para seu ip em ambiente de desenvolvimento;
 
