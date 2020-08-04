@@ -18,9 +18,9 @@
 
 - Na pasta raiz do projeto, onde fica localizado o arquivo docker-compose.yml, execute o comando "docker-compose up -d";
 
-- Execute o comando "dotnet ef database update", para iniciar um novo banco de dados;
+- Na pasta raiz do projeto, Execute o comando "dotnet ef database update", para iniciar um novo banco de dados;
 
-- Execute o comando "dotnet test", para executar os testes de integração;
+- Na pasta raiz do projeto, Execute o comando "dotnet test", para executar os testes de integração;
 
 - Agora sua aplicação deve estar rodando no endereço "http://localhost:8010/" ou "http://127.0.0.1:8010"
 
