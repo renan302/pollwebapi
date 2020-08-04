@@ -20,6 +20,8 @@
 
 - Execute o comando "dotnet ef database update", para iniciar um novo banco de dados;
 
+- Execute o comando "dotnet test", para executar os testes de integração;
+
 - Agora sua aplicação deve estar rodando no endereço "http://localhost:8010/" ou "http://127.0.0.1:8010"
 
 - Swagger API: "http://localhost:8010/doc" ou "http://127.0.0.1:8010/doc"
