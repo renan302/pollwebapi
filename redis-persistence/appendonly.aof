@@ -1,0 +1,884 @@
+*2
+$6
+SELECT
+$1
+0
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*3
+$6
+SCRIPT
+$4
+LOAD
+$247
+
+                redis.call('HMSET', KEYS[1], 'absexp', ARGV[1], 'sldexp', ARGV[2], 'data', ARGV[4])
+                if ARGV[3] ~= '-1' then
+                  redis.call('EXPIRE', KEYS[1], ARGV[3])
+                end
+                return 1
+*1
+$5
+MULTI
+*8
+$5
+HMSET
+$20
+PollWebApiget.poll.1
+$6
+absexp
+$18
+637321583360948702
+$6
+sldexp
+$2
+-1
+$4
+data
+$325
+{
+  "poll_id": 1,
+  "poll_description": "Teste de Integra\u00E7\u00E3o",
+  "options": [
+    {
+      "option_id": 1,
+      "option_description": "Voto 1"
+    },
+    {
+      "option_id": 2,
+      "option_description": "Voto 2"
+    },
+    {
+      "option_id": 3,
+      "option_description": "Voto 3"
+    }
+  ]
+}
+*3
+$9
+PEXPIREAT
+$20
+PollWebApiget.poll.1
+$13
+1596561536097
+*1
+$4
+EXEC
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*2
+$3
+DEL
+$20
+PollWebApiget.poll.1
+*2
+$6
+SELECT
+$1
+0
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*3
+$6
+SCRIPT
+$4
+LOAD
+$247
+
+                redis.call('HMSET', KEYS[1], 'absexp', ARGV[1], 'sldexp', ARGV[2], 'data', ARGV[4])
+                if ARGV[3] ~= '-1' then
+                  redis.call('EXPIRE', KEYS[1], ARGV[3])
+                end
+                return 1
+*1
+$5
+MULTI
+*8
+$5
+HMSET
+$20
+PollWebApiget.poll.1
+$6
+absexp
+$18
+637321805650102021
+$6
+sldexp
+$2
+-1
+$4
+data
+$308
+{
+  "poll_id": 1,
+  "poll_description": "Teste de Integra\u00E7\u00E3o",
+  "options": [
+    {
+      "option_id": 1,
+      "option_description": "Voto 1"
+    },
+    {
+      "option_id": 2,
+      "option_description": "Voto 2"
+    },
+    {
+      "option_id": 3,
+      "option_description": "Voto 3"
+    }
+  ]
+}
+*3
+$9
+PEXPIREAT
+$20
+PollWebApiget.poll.1
+$13
+1596583765014
+*1
+$4
+EXEC
+*2
+$3
+DEL
+$20
+PollWebApiget.poll.1
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*3
+$6
+SCRIPT
+$4
+LOAD
+$247
+
+                redis.call('HMSET', KEYS[1], 'absexp', ARGV[1], 'sldexp', ARGV[2], 'data', ARGV[4])
+                if ARGV[3] ~= '-1' then
+                  redis.call('EXPIRE', KEYS[1], ARGV[3])
+                end
+                return 1
+*1
+$5
+MULTI
+*8
+$5
+HMSET
+$20
+PollWebApiget.poll.1
+$6
+absexp
+$18
+637321816671995451
+$6
+sldexp
+$2
+-1
+$4
+data
+$325
+{
+  "poll_id": 1,
+  "poll_description": "Teste de Integra\u00E7\u00E3o",
+  "options": [
+    {
+      "option_id": 1,
+      "option_description": "Voto 1"
+    },
+    {
+      "option_id": 2,
+      "option_description": "Voto 2"
+    },
+    {
+      "option_id": 3,
+      "option_description": "Voto 3"
+    }
+  ]
+}
+*3
+$9
+PEXPIREAT
+$20
+PollWebApiget.poll.1
+$13
+1596584867201
+*1
+$4
+EXEC
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*3
+$6
+SCRIPT
+$4
+LOAD
+$247
+
+                redis.call('HMSET', KEYS[1], 'absexp', ARGV[1], 'sldexp', ARGV[2], 'data', ARGV[4])
+                if ARGV[3] ~= '-1' then
+                  redis.call('EXPIRE', KEYS[1], ARGV[3])
+                end
+                return 1
+*1
+$5
+MULTI
+*8
+$5
+HMSET
+$20
+PollWebApiget.poll.2
+$6
+absexp
+$18
+637321817297693764
+$6
+sldexp
+$2
+-1
+$4
+data
+$325
+{
+  "poll_id": 2,
+  "poll_description": "Teste de Integra\u00E7\u00E3o",
+  "options": [
+    {
+      "option_id": 4,
+      "option_description": "Voto 1"
+    },
+    {
+      "option_id": 5,
+      "option_description": "Voto 2"
+    },
+    {
+      "option_id": 6,
+      "option_description": "Voto 3"
+    }
+  ]
+}
+*3
+$9
+PEXPIREAT
+$20
+PollWebApiget.poll.2
+$13
+1596584929771
+*1
+$4
+EXEC
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*2
+$3
+DEL
+$20
+PollWebApiget.poll.1
+*2
+$3
+DEL
+$20
+PollWebApiget.poll.2
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*3
+$6
+SCRIPT
+$4
+LOAD
+$247
+
+                redis.call('HMSET', KEYS[1], 'absexp', ARGV[1], 'sldexp', ARGV[2], 'data', ARGV[4])
+                if ARGV[3] ~= '-1' then
+                  redis.call('EXPIRE', KEYS[1], ARGV[3])
+                end
+                return 1
+*1
+$5
+MULTI
+*8
+$5
+HMSET
+$20
+PollWebApiget.poll.1
+$6
+absexp
+$18
+637321826616635739
+$6
+sldexp
+$2
+-1
+$4
+data
+$308
+{
+  "poll_id": 1,
+  "poll_description": "Teste de Integra\u00E7\u00E3o",
+  "options": [
+    {
+      "option_id": 1,
+      "option_description": "Voto 1"
+    },
+    {
+      "option_id": 2,
+      "option_description": "Voto 2"
+    },
+    {
+      "option_id": 3,
+      "option_description": "Voto 3"
+    }
+  ]
+}
+*3
+$9
+PEXPIREAT
+$20
+PollWebApiget.poll.1
+$13
+1596585861669
+*1
+$4
+EXEC
+*1
+$5
+MULTI
+*8
+$5
+HMSET
+$20
+PollWebApiget.poll.2
+$6
+absexp
+$18
+637321826718201193
+$6
+sldexp
+$2
+-1
+$4
+data
+$308
+{
+  "poll_id": 2,
+  "poll_description": "Teste de Integra\u00E7\u00E3o",
+  "options": [
+    {
+      "option_id": 4,
+      "option_description": "Voto 1"
+    },
+    {
+      "option_id": 5,
+      "option_description": "Voto 2"
+    },
+    {
+      "option_id": 6,
+      "option_description": "Voto 3"
+    }
+  ]
+}
+*3
+$9
+PEXPIREAT
+$20
+PollWebApiget.poll.2
+$13
+1596585871821
+*1
+$4
+EXEC
+*1
+$5
+MULTI
+*8
+$5
+HMSET
+$20
+PollWebApiget.poll.3
+$6
+absexp
+$18
+637321826833175063
+$6
+sldexp
+$2
+-1
+$4
+data
+$308
+{
+  "poll_id": 3,
+  "poll_description": "Teste de Integra\u00E7\u00E3o",
+  "options": [
+    {
+      "option_id": 7,
+      "option_description": "Voto 1"
+    },
+    {
+      "option_id": 8,
+      "option_description": "Voto 2"
+    },
+    {
+      "option_id": 9,
+      "option_description": "Voto 3"
+    }
+  ]
+}
+*3
+$9
+PEXPIREAT
+$20
+PollWebApiget.poll.3
+$13
+1596585883318
+*1
+$4
+EXEC
+*1
+$5
+MULTI
+*8
+$5
+HMSET
+$20
+PollWebApiget.poll.4
+$6
+absexp
+$18
+637321827183054888
+$6
+sldexp
+$2
+-1
+$4
+data
+$328
+{
+  "poll_id": 4,
+  "poll_description": "Teste Enquete",
+  "options": [
+    {
+      "option_id": 10,
+      "option_description": "Op\u00E7\u00E3o 1"
+    },
+    {
+      "option_id": 13,
+      "option_description": "Op\u00E7\u00E3o 2"
+    },
+    {
+      "option_id": 16,
+      "option_description": "Op\u00E7\u00E3o 2"
+    }
+  ]
+}
+*3
+$9
+PEXPIREAT
+$20
+PollWebApiget.poll.4
+$13
+1596585918362
+*1
+$4
+EXEC
+*1
+$5
+MULTI
+*8
+$5
+HMSET
+$20
+PollWebApiget.poll.5
+$6
+absexp
+$18
+637321827370825320
+$6
+sldexp
+$2
+-1
+$4
+data
+$328
+{
+  "poll_id": 5,
+  "poll_description": "Teste Enquete",
+  "options": [
+    {
+      "option_id": 12,
+      "option_description": "Op\u00E7\u00E3o 1"
+    },
+    {
+      "option_id": 15,
+      "option_description": "Op\u00E7\u00E3o 2"
+    },
+    {
+      "option_id": 18,
+      "option_description": "Op\u00E7\u00E3o 2"
+    }
+  ]
+}
+*3
+$9
+PEXPIREAT
+$20
+PollWebApiget.poll.5
+$13
+1596585937084
+*1
+$4
+EXEC
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*3
+$6
+SCRIPT
+$4
+LOAD
+$247
+
+                redis.call('HMSET', KEYS[1], 'absexp', ARGV[1], 'sldexp', ARGV[2], 'data', ARGV[4])
+                if ARGV[3] ~= '-1' then
+                  redis.call('EXPIRE', KEYS[1], ARGV[3])
+                end
+                return 1
+*1
+$5
+MULTI
+*8
+$5
+HMSET
+$21
+PollWebApifind.poll.1
+$6
+absexp
+$18
+637321832316327664
+$6
+sldexp
+$2
+-1
+$4
+data
+$308
+{
+  "poll_id": 1,
+  "poll_description": "Teste de Integra\u00E7\u00E3o",
+  "options": [
+    {
+      "option_id": 1,
+      "option_description": "Voto 1"
+    },
+    {
+      "option_id": 2,
+      "option_description": "Voto 2"
+    },
+    {
+      "option_id": 3,
+      "option_description": "Voto 3"
+    }
+  ]
+}
+*3
+$9
+PEXPIREAT
+$21
+PollWebApifind.poll.1
+$13
+1596586431638
+*1
+$4
+EXEC
+*1
+$5
+MULTI
+*8
+$5
+HMSET
+$21
+PollWebApifind.poll.2
+$6
+absexp
+$18
+637321832407528530
+$6
+sldexp
+$2
+-1
+$4
+data
+$308
+{
+  "poll_id": 2,
+  "poll_description": "Teste de Integra\u00E7\u00E3o",
+  "options": [
+    {
+      "option_id": 4,
+      "option_description": "Voto 1"
+    },
+    {
+      "option_id": 5,
+      "option_description": "Voto 2"
+    },
+    {
+      "option_id": 6,
+      "option_description": "Voto 3"
+    }
+  ]
+}
+*3
+$9
+PEXPIREAT
+$21
+PollWebApifind.poll.2
+$13
+1596586440756
+*1
+$4
+EXEC
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*2
+$3
+DEL
+$20
+PollWebApiget.poll.1
+*2
+$3
+DEL
+$20
+PollWebApiget.poll.2
+*2
+$3
+DEL
+$20
+PollWebApiget.poll.3
+*3
+$6
+SCRIPT
+$4
+LOAD
+$49
+return redis.call('HMGET', KEYS[1], unpack(ARGV))
+*2
+$3
+DEL
+$20
+PollWebApiget.poll.4
+*2
+$3
+DEL
+$20
+PollWebApiget.poll.5
+*3
+$6
+SCRIPT
+$4
+LOAD
+$247
+
+                redis.call('HMSET', KEYS[1], 'absexp', ARGV[1], 'sldexp', ARGV[2], 'data', ARGV[4])
+                if ARGV[3] ~= '-1' then
+                  redis.call('EXPIRE', KEYS[1], ARGV[3])
+                end
+                return 1
+*1
+$5
+MULTI
+*8
+$5
+HMSET
+$21
+PollWebApifind.poll.7
+$6
+absexp
+$18
+637321836563659582
+$6
+sldexp
+$2
+-1
+$4
+data
+$210
+{"poll_id":7,"poll_description":"Teste Enquete","options":[{"option_id":19,"option_description":"Opção 1"},{"option_id":20,"option_description":"Opção 2"},{"option_id":21,"option_description":"Opção 2"}]}
+*3
+$9
+PEXPIREAT
+$21
+PollWebApifind.poll.7
+$13
+1596586856368
+*1
+$4
+EXEC
+*1
+$5
+MULTI
+*8
+$5
+HMSET
+$22
+PollWebApifind.poll.10
+$6
+absexp
+$18
+637321836679612198
+$6
+sldexp
+$2
+-1
+$4
+data
+$211
+{"poll_id":10,"poll_description":"Teste Enquete","options":[{"option_id":26,"option_description":"Opção 1"},{"option_id":29,"option_description":"Opção 2"},{"option_id":31,"option_description":"Opção 2"}]}
+*3
+$9
+PEXPIREAT
+$22
+PollWebApifind.poll.10
+$13
+1596586867963
+*1
+$4
+EXEC

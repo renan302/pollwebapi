@@ -26,34 +26,12 @@ namespace PollWebApi.Controllers
 
         // GET: api/poll/v1/5
         [HttpGet("{id}")]
-        public ActionResult<Object> Get(int id, [FromServices]IConfiguration config,
-            [FromServices]IDistributedCache cache)
+        public ActionResult<Object> Get(int id, [FromServices]IDistributedCache cache)
         {
             Object pollClass;            
             try
-            {
-                var options = new JsonSerializerOptions
-                {
-                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                    WriteIndented = true
-                };
-
-                pollClass = cache.GetString("get.poll."+id.ToString());                               
-
-                if (pollClass == null)
-                {
-                    pollClass = PollClass.findObject(_context, id);
-
-                    DistributedCacheEntryOptions opcoesCache =
-                    new DistributedCacheEntryOptions();
-
-                    opcoesCache.SetAbsoluteExpiration(
-                    TimeSpan.FromMinutes(15));                    
-
-                    cache.SetString("get.poll." + id.ToString(), 
-                           JsonSerializer.Serialize(pollClass, options), opcoesCache);
-                }
-
+            {                
+                pollClass = PollClass.findObject(_context, cache, id);
             }
             catch (KeyNotFoundException e)
             {

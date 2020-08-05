@@ -1,10 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Distributed;
+using Newtonsoft.Json;
 using PollWebApi.Context;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Text;
+using System.Text.Json;
 
 namespace PollWebApi.Models
 {
@@ -46,17 +51,38 @@ namespace PollWebApi.Models
             return pollClass;
         }
 
-        public static Object findObject(PollContext context, Int64 id)
+        public static Object findObject(PollContext context, IDistributedCache cache, Int64 id)
         {
+            Object pollClass;
 
-            Object pollClass = context.Poll
+            pollClass = cache.GetString("find.poll." + id.ToString());
+
+            if (pollClass == null)
+            {
+
+                pollClass = context.Poll
                 .Include(x => x.options)
                 .Select(x => new { x.poll_id, x.poll_description, options = x.options.Select(z => new { z.option_id, z.option_description }) })
                 .FirstOrDefault(x => x.poll_id == id);
 
-            if (pollClass == null)
+                if (pollClass == null)
+                {
+                    throw new KeyNotFoundException();
+                }
+
+                DistributedCacheEntryOptions opcoesCache =
+                    new DistributedCacheEntryOptions();
+
+                opcoesCache.SetAbsoluteExpiration(
+                TimeSpan.FromMinutes(15));
+
+                string output = JsonConvert.SerializeObject(pollClass);
+
+                cache.SetString("find.poll." + id.ToString(), output, opcoesCache);
+            }
+            else
             {
-                throw new KeyNotFoundException();
+                pollClass = JsonConvert.DeserializeObject<Object>(pollClass.ToString());
             }
 
             PollClass.registerView(context, id);
@@ -64,7 +90,7 @@ namespace PollWebApi.Models
             return pollClass;
         }
 
-        private static void registerView(PollContext context, Int64 id)
+        public static void registerView(PollContext context, Int64 id)
         {
             PollViewClass pollview = new PollViewClass { poll_id = id };
 
